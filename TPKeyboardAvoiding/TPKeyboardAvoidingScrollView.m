@@ -17,6 +17,7 @@
 - (void)setKeyboardAvoidingEnabled:(BOOL)keyboardAvoidingEnabled {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     if (keyboardAvoidingEnabled) {
+        _keyboardAvoidingEnabled = keyboardAvoidingEnabled;
         [self setup];
     }
 }
