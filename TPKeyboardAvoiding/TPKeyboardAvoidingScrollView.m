@@ -9,9 +9,17 @@
 #import "TPKeyboardAvoidingScrollView.h"
 
 @interface TPKeyboardAvoidingScrollView () <UITextFieldDelegate, UITextViewDelegate>
+@property (nonatomic) BOOL keyboardAvoidingEnabled;
 @end
 
 @implementation TPKeyboardAvoidingScrollView
+
+- (void)setKeyboardAvoidingEnabled:(BOOL)keyboardAvoidingEnabled {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if (keyboardAvoidingEnabled) {
+        [self setup];
+    }
+}
 
 #pragma mark - Setup/Teardown
 

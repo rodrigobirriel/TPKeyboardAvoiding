@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TPKeyboardAvoidingProtocol <NSObject>
+- (void)setKeyboardAvoidingEnabled:(BOOL)keyboardAvoidingEnabled;
+- (BOOL)keyboardAvoidingEnabled;
+- (BOOL)focusNextTextField;
+@end
+
 @interface UIScrollView (TPKeyboardAvoidingAdditions)
 - (BOOL)TPKeyboardAvoiding_focusNextTextField;
 - (void)TPKeyboardAvoiding_scrollToActiveTextField;

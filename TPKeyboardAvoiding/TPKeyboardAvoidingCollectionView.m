@@ -9,9 +9,17 @@
 #import "TPKeyboardAvoidingCollectionView.h"
 
 @interface TPKeyboardAvoidingCollectionView () <UITextFieldDelegate, UITextViewDelegate>
+@property (nonatomic) BOOL keyboardAvoidingEnabled;
 @end
 
 @implementation TPKeyboardAvoidingCollectionView
+
+- (void)setKeyboardAvoidingEnabled:(BOOL)keyboardAvoidingEnabled {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if (keyboardAvoidingEnabled) {
+        [self setup];
+    }
+}
 
 #pragma mark - Setup/Teardown
 

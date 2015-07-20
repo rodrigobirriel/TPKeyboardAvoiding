@@ -9,9 +9,17 @@
 #import "TPKeyboardAvoidingTableView.h"
 
 @interface TPKeyboardAvoidingTableView () <UITextFieldDelegate, UITextViewDelegate>
+@property (nonatomic) BOOL keyboardAvoidingEnabled;
 @end
 
 @implementation TPKeyboardAvoidingTableView
+
+- (void)setKeyboardAvoidingEnabled:(BOOL)keyboardAvoidingEnabled {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if (keyboardAvoidingEnabled) {
+        [self setup];
+    }
+}
 
 #pragma mark - Setup/Teardown
 
